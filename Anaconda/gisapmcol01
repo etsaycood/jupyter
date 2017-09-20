@@ -1,0 +1,39 @@
+    1  exit
+    2  ssh-keygen
+    3  cd /root/.ssh/
+    4  vi authorized_keys
+    5  chmod 600 ~/.ssh/authorized_keys
+    6  chmod 700 ~/.ssh/
+    7  yum install -y ntp ntpdate ntp-doc
+    8  ntpdate pool.ntp.org
+    9  systemctl start ntpd
+   10  systemctl enable ntpd
+   11  sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/sysconfig/selinux
+   12  sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
+   13  setenforce 0
+   14  systemctl stop firewalld
+   15  systemctl disable firewalld
+   16  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+   17  chmod 700 ~/
+   18  chmod 700 ~/.ssh
+   19  chmod 644 ~/.ssh/authorized_keys
+   20  chmod 600 ~/.ssh/id_rsa
+   21  systemctl restart sshd
+   22  tee -a /etc/hosts << "EOF"
+   23  172.16.8.185 gisapmmon
+   24  172.16.8.186 gisapmcol01
+   25  172.16.8.187 gisapmcol02
+   26  172.16.8.188 gisapmcol03
+   27  EOF
+   28  yum -y install wget
+   29   cd /etc/yum.repos.d/
+   30  wget http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/ambari.repo
+   31  wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+   32  rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
+   33  yum -y install python-pip
+   34  su - hdfs
+   35  yum -y install bzip2
+   36  cd /tmp/
+   37  ls
+   38  yum -y install bzip2
+   39  yum install -y numpy
