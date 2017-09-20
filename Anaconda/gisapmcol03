@@ -1,0 +1,248 @@
+    1  exit
+    2  ssh-keygen
+    3  cd /root/.ssh/
+    4  vi authorized_keys
+    5  chmod 600 ~/.ssh/authorized_keys
+    6  chmod 700 ~/.ssh/
+    7  yum install -y ntp ntpdate ntp-doc
+    8  ntpdate pool.ntp.org
+    9  systemctl start ntpd
+   10  systemctl enable ntpd
+   11  sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/sysconfig/selinux
+   12  sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
+   13  setenforce 0
+   14  systemctl stop firewalld
+   15  systemctl disable firewalld
+   16  cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+   17  chmod 700 ~/
+   18  chmod 700 ~/.ssh
+   19  chmod 644 ~/.ssh/authorized_keys
+   20  chmod 600 ~/.ssh/id_rsa
+   21  systemctl restart sshd
+   22  tee -a /etc/hosts << "EOF"
+   23  172.16.8.185 gisapmmon
+   24  172.16.8.186 gisapmcol01
+   25  172.16.8.187 gisapmcol02
+   26  172.16.8.188 gisapmcol03
+   27  EOF
+   28  ssh-copy-id -i ~/.ssh/id_rsa.pub gisapmmon
+   29  ssh-copy-id -i ~/.ssh/id_rsa.pub gisapmcol01
+   30  ls
+   31  vi /etc/hosts
+   32  ssh isapmcol01
+   33  ssh gisapmcol01
+   34  ssh gisapmcol02
+   35  ssh gisapmcol03
+   36  yum -y install wget
+   37   cd /etc/yum.repos.d/
+   38  wget http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/ambari.repo
+   39  wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.5.1.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+   40  rpm -iUvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
+   41  yum -y install python-pip
+   42  su - hdfs
+   43  cd /tmp/
+   44  ls
+   45  mv MP21622_example.zip python/
+   46  ls
+   47  cd python/
+   48  ls
+   49  tar -zxvf MP21622_example.zip
+   50  unzip MP21622_example.zip
+   51  ls
+   52  cd pythonsparkexample/
+   53  ls
+   54  cd PythonProject/
+   55  ls
+   56  cd data/
+   57  ls
+   58  pwd
+   59  hadoop -ls
+   60  hadoop
+   61  hadoop fs -ls
+   62  hadoop fs
+   63  hadoop fs -ls
+   64  hadoop fs -ls /
+   65  hadoop fs -ls /usr/
+   66  hadoop fs -ls /usr
+   67  hadoop fs -ls /tmp
+   68  ls
+   69  cd /tmp/
+   70  ls
+   71  python
+   72  cd python/pythonsparkexample/
+   73  ls
+   74  cd ipynotebook/
+   75  ls
+   76  cd data/
+   77  ls
+   78  cd ..
+   79  cd d
+   80  cd data/
+   81  ls
+   82  cd ..
+   83  pwd
+   84  hadoop fs -copyFromLocal -f data /user
+   85  hadoop fs /usr/
+   86  hadoop fs -ls /usr/
+   87  hadoop fs -ls /
+   88  hadoop fs -ls /tmp/
+   89  hadoop fs -copyFromLocal -f data /user/
+   90  hadoop fs -ls /usr/
+   91  hadoop fs -ls /
+   92  hadoop fs -ls /hdp
+   93  hadoop fs -ls /user
+   94  hadoop fs -ls /user/data
+   95  pyspark
+   96  ls
+   97  hadoop fs -ls /usr/
+   98  hadoop fs -ls /usr
+   99  hadoop fs -ls /
+  100  hadoop fs -ls /user
+  101  hadoop fs -ls /user/data
+  102  ls
+  103  cd ..
+  104  ls
+  105  cd pythonsparkexample/
+  106  cd PythonProject/
+  107  ls
+  108  hadoop fs -copyFromLocal -f data /user/data
+  109  hadoop fs -ls /user/data
+  110  hadoop fs -ls /user/data/data
+  111  yum install numpy
+  112  cd /tmp/
+  113  ls
+  114  wget https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh
+  115  bash Anaconda2-4.4.0-Linux-x86_64.sh -b
+  116  yum install bzip2
+  117  bash Anaconda2-4.4.0-Linux-x86_64.sh -b
+  118  rm -rf /root/anaconda
+  119  rm -rf /root/anaconda2/
+  120  bash Anaconda2-4.4.0-Linux-x86_64.sh -b
+  121  ls
+  122  scp Anaconda2-4.4.0-Linux-x86_64.sh root@gisapmmon:/tmp
+  123  scp Anaconda2-4.4.0-Linux-x86_64.sh root@gisapmcol01:/tmp
+  124  history
+  125  vi ~/.bashrc
+  126  vi /etc/bashrc
+  127  vi ~/.bashrc
+  128  rpm -qa | grep Anaconda2
+  129  rpm -qa | grep anaconda
+  130  whereis Anaconda2
+  131  cd /root/anaconda2
+  132  ls
+  133  rpm -qa |anaconda2
+  134  rpm -qa |ana
+  135  rpm -qa
+  136  s
+  137  ls
+  138  cd /tmp/
+  139  ls
+  140  ls -al
+  141  q!
+  142  cd /root/anaconda2
+  143  ls
+  144  sudo gedit ~/.bashrc
+  145  vi ~/.bashrc
+  146  cd /root/anaconda2/
+  147  ls
+  148  cd ..
+  149  pwd
+  150  vi ~/.bashrc
+  151  source ~/.bashrc
+  152  cd /hadoop/
+  153  ls
+  154  cd zookeeper/
+  155  ls
+  156  cd ..
+  157  cd /tmp/
+  158  ls
+  159  mv python/ /root/hadoop
+  160  cd /hadoop/
+  161  ls
+  162  cd /tmp/
+  163  ls
+  164  cd /tmp/
+  165  ls
+  166  cd ..
+  167  pwd
+  168  ls
+  169  cd /tmp/
+  170  ls
+  171  pwd
+  172  ls
+  173  cd /root/hadoop/
+  174  ls
+  175  cd /hadoop/
+  176  ls
+  177  cd hdfs/
+  178  ls
+  179  cd data/
+  180  ls
+  181  cd current/
+  182  ls
+  183  cd ..
+  184  ls
+  185  cd ..
+  186  ls
+  187  cd yarn/
+  188  ls
+  189  cd ..
+  190  cd zookeeper/
+  191  ls
+  192  cd ..
+  193  ls
+  194  history
+  195  cd /root/hadoop
+  196  ls
+  197  cd pythonsparkexample/
+  198  ls
+  199  cd PythonProject/
+  200  ls
+  201  cd data/
+  202  ls
+  203  pwd
+  204  python --version
+  205  mkdir -p ~/pythonwork/ipynotebook
+  206  cd ~/pythonwork/ipynotebook
+  207  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark
+  208  vi /etc/
+  209  cd /etc/
+  210  ls
+  211  cd iproute2/
+  212  ls
+  213  cd ..
+  214  whereis ipynotebook
+  215  cd /root/anaconda2/
+  216  ls
+  217  cd bin/
+  218  ls
+  219  vi ipython
+  220  vi ipython2
+  221  Q!
+  222  vi jupyter
+  223  vi jupyter-notebook
+  224  cd ..
+  225  ls
+  226  ipython
+  227  cd ~/pythonwork/ipynotebook
+  228  ls
+  229  jupyter notebook --generate-config --allow-root
+  230  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark
+  231  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark --allow-root
+  232  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark -allow-root
+  233  yum install anaconda2
+  234  jupyter notebook
+  235  jupyter notebook -allow-root
+  236  jupyter notebook --allow-root
+  237  ls
+  238  jupyter notebook --generate-config --allow-root
+  239  vi /root/.jupyter/jupyter_notebook_config.py
+  240  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark
+  241  vi /root/.jupyter/jupyter_notebook_config.py
+  242  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark
+  243  vi /root/.jupyter/jupyter_notebook_config.py
+  244  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" pyspark
+  245  cd /hadoop/
+  246  ls
+  247  pwd
+  248  PYSPARK_DRIVER_PYTHON=ipython PYSPARK_DRIVER_PYTHON_OPTS="notebook" HADOOP_CONF_DIR=/root/hadoop pyspark --master yarn --deploy-mode client
