@@ -1,0 +1,2 @@
+cd 'C:\Program Files\Filebeat'
+PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1
