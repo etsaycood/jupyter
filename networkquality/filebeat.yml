@@ -1,0 +1,17 @@
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - C:\wiresharklog\*
+  document_type: "pcap_file"
+  json.keys_under_root: true
+
+processors:
+ - drop_event:
+     when:
+       equals:
+         index._type: "pcap_file"
+
+output.elasticsearch:
+  hosts: ["10.60.88.239:9200"]
+  index: "packets-webserver01-%{+yyyy-MM-dd}"
+  template.enabled: false
