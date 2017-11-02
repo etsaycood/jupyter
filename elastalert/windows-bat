@@ -1,0 +1,5 @@
+alert:
+- command
+
+new_style_string_format: True
+command: ["C:/Users/administrator.ABC/Desktop/curl/callwechat.bat", "{match[layers][ip][ip_ip_src]}"]
