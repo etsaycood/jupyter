@@ -1,0 +1,13 @@
+alert_text_args:
+ - client_ip
+ - username
+ - classroom
+ - logsource
+ - "@timestamp"
+
+
+# (Required)
+# The alert is use when a match is found
+alert:
+- command
+command: ["/root/elastalert/tutorchat.sh", "%(client_ip)s", "%(username)s", "%(classroom)s"]
