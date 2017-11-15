@@ -2,7 +2,7 @@ GET abc-*/_search
 {
    "size" : 0,
    "aggs":{
-      "recent_sales": {
+      "abc": {
          "filter": { 
             "range": {
                "timestamp": {
