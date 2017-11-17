@@ -1,0 +1,31 @@
+GET extrahop*/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "default_field": "FIELD",
+            "query": "(_exists_:username) AND (logsource:JP)"
+          }
+        }
+      ], 
+      "filter": {
+        "range": {
+          "timestamp": {
+            "gt": "now-1h",
+            "lt": "now"
+          }
+        }
+      }
+    }
+  },
+  "size": 0,
+  "aggs": {
+    "count": {
+      "terms": {
+        "field": "username.keyword"
+      }
+    }
+  }
+}
