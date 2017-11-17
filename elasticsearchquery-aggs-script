@@ -1,0 +1,42 @@
+GET extrahop*/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(_exists_:username) AND (logsource:DE)"
+          }
+        },
+        {
+          "range": {
+            "timestamp": {
+              "gte": "now-4h",
+              "lte": "now"
+            }
+          }
+        }
+      ],
+      "must_not": []
+    }
+  },
+  "size": 0, 
+  "aggs": {
+    "ipo_year": {
+      "terms": {
+        "field": "username.keyword"
+      },
+      "aggs": {
+        "having": {
+          "bucket_selector": {
+            "buckets_path": {"username.keyword":"_count"},
+            "script": {
+              "lang": "expression",
+              "inline": " username.keyword > 2"
+            }
+          }
+        }
+      }
+    }
+  }
+}
