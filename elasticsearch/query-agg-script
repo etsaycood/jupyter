@@ -22,7 +22,7 @@ GET extrahop*/_search
   },
   "size": 0, 
   "aggs": {
-    "ipo_year": {
+    "usernamecount": {
       "terms": {
         "field": "username.keyword"
         , "size": 1
