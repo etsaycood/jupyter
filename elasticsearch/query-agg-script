@@ -31,12 +31,9 @@ GET abc*/_search
         "having": {
           "bucket_selector": {
             "buckets_path": {
-              "username.keyword": "_count"
+              "count": "_count"
             },
-            "script": {
-              "lang": "expression",
-              "inline": " username.keyword > 1"
-            }
+              "script": "params.count > 1"
           }
         }
       }
