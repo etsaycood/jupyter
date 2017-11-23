@@ -1,16 +1,34 @@
-GET abc-*/_search
+GET abc*/_search
 {
-  "size": 0,
+  "size": 0, 
   "query": {
     "bool": {
       "filter": {
         "range": {
           "timestamp": {
-            "gt": "now-30m",
+            "gt": "now-1h",
             "lt": "now"
           }
         }
       }
     }
+  }
+}
+
+
+<Output======================>
+
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 55,
+    "successful": 55,
+    "failed": 0
+  },
+  "hits": {
+    "total": 55,
+    "max_score": 0,
+    "hits": []
   }
 }
