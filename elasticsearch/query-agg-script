@@ -1,0 +1,74 @@
+GET abc*/_search
+{
+  "size": 0, 
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "query_string": {
+            "query": "(_exists_:username)"
+          }
+        },
+        {
+          "range": {
+            "timestamp": {
+              "gte": "now-1h",
+              "lte": "now"
+            }
+          }
+        }
+      ],
+      "must_not": []
+    }
+  },
+  "aggs": {
+    "usernamecount": {
+      "terms": {
+        "field": "username.keyword"
+        , "size": 1
+      },
+      "aggs": {
+        "having": {
+          "bucket_selector": {
+            "buckets_path": {
+              "username.keyword": "_count"
+            },
+            "script": {
+              "lang": "expression",
+              "inline": " username.keyword > 1"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+<Output======================>
+
+{
+  "took": 8,
+  "timed_out": false,
+  "_shards": {
+    "total": 55,
+    "successful": 55,
+    "failed": 0
+  },
+  "hits": {
+    "total": 55,
+    "max_score": 0,
+    "hits": []
+  },
+  "aggregations": {
+    "usernamecount": {
+      "doc_count_error_upper_bound": 2,
+      "sum_other_doc_count": 48,
+      "buckets": [
+        {
+          "key": "eugenelin",
+          "doc_count": 7
+        }
+      ]
+    }
+  }
+}
