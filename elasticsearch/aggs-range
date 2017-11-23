@@ -1,0 +1,49 @@
+GET abc*/_search
+{
+  "size": 0, 
+  "aggs": {
+    "pertime": {
+      "date_range": {
+        "field": "timestamp",
+        "ranges": [
+          {
+            "from": "now-1h",
+            "to": "now"
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+<Output======================>
+
+{
+  "took": 3,
+  "timed_out": false,
+  "_shards": {
+    "total": 55,
+    "successful": 55,
+    "failed": 0
+  },
+  "hits": {
+    "total": 8316,
+    "max_score": 0,
+    "hits": []
+  },
+  "aggregations": {
+    "pertime": {
+      "buckets": [
+        {
+          "key": "2017-11-23T08:17:20.851Z-2017-11-23T09:17:20.851Z",
+          "from": 1511425040851,
+          "from_as_string": "2017-11-23T08:17:20.851Z",
+          "to": 1511428640851,
+          "to_as_string": "2017-11-23T09:17:20.851Z",
+          "doc_count": 55
+        }
+      ]
+    }
+  }
+}
