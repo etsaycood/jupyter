@@ -26,7 +26,7 @@ type: frequency
 
 # (Required)
 # Index to search, wildcard supported
-index: extrahop-*
+index: de-*
 
 # (Required, frequency specific)
 # Alert when this many documents matching the query occur within a timeframe
