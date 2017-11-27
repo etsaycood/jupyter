@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #_*_coding:utf-8 _*_
+#Reference: http://blog.51cto.com/1992mrwang/1206673
 
 import urllib,urllib2
 import json
