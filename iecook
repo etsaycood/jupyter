@@ -1,0 +1,12 @@
+taskkill /f /im iexplore.exe 
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255     (刪除IE中所有的歷史記錄)
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 1        (刪除歷史記錄)
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 2        (刪除Cookies記錄)
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 8        (刪除Temporary Internet Files記錄)
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 16      (刪除Form Data記錄)
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 32      (刪除Password History記錄)
+RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 4351     (刪除IE瀏覽器插件所產生的垃圾記錄)
+
+
+#參考
+#http://fanchie.blogspot.tw/2008/07/windows-vista-rundll32.html
