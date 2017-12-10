@@ -46,5 +46,16 @@ https://github.com/leVirve/CrawlerTutorial
 591爬蟲
 https://github.com/ywchiu/largitdata/blob/master/20170721Speech/house_591.ipynb
 
+如何使用logstash更新已有的elasticsearch记录
+http://www.voidcn.com/article/p-dssvnclg-bnv.html
+Logstash conf.d 多个配置文件
+http://www.cnblogs.com/licongyu/p/5442652.html
+[Database][MongoDB] 新增、修改、查詢、刪除操作 1 ( CRUD operation 1 )
+http://dog0416.blogspot.tw/2015/08/databasemongodb-1-crud-operation-1.html
+http://172.16.233.111:9200/_cat/indices?v
+第4章 Hadoop 2.6 Single Node Cluster 安裝指令
+http://pythonsparkhadoop.blogspot.tw/2016/07/4-hadoop-26-single-node-cluster.html
+Keras深度學習(Deep Learning)卷積神經網路(CNN)辨識Cifar-10影像
+http://tensorflowkeras.blogspot.tw/2017/10/kerasdeep-learningcnncifar-10.html
 
 http://ostinato.org/
